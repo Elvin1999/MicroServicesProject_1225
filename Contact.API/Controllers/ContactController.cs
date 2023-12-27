@@ -23,31 +23,38 @@ namespace Contact.API.Controllers
         [HttpGet("{id}")]
         public ContactDto Get(int id)
         {
-            var item=_contactService.GetContactById(id);
-            var dto=_mapper.Map<ContactDto>(item);
+            var item = _contactService.GetContactById(id);
+            var dto = _mapper.Map<ContactDto>(item);
             return dto;
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _contactService.Delete(id);
-            return NoContent();
+            try
+            {
+                _contactService.Delete(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("")]
         public List<ContactDto> GetAll()
         {
-            var items=_contactService.GetAll();
-            var dtos=_mapper.Map<List<ContactDto>>(items);
-            return dtos;    
+            var items = _contactService.GetAll();
+            var dtos = _mapper.Map<List<ContactDto>>(items);
+            return dtos;
         }
 
 
         [HttpPost]
         public ContactDto Add(ContactDto dto)
         {
-            var model=_mapper.Map<ContactModel>(dto);
+            var model = _mapper.Map<ContactModel>(dto);
             _contactService.Add(model);
             var addedDto = _mapper.Map<ContactDto>(model);
             return addedDto;
