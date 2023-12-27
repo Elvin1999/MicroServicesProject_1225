@@ -10,7 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/c/{id}",
-      "UpstreamHttpMethod": [ "Get", "Delete" ]
+      "UpstreamHttpMethod": [ "Get", "Delete","Put" ]
     },
     {
       "DownstreamPathTemplate": "/api/contact",

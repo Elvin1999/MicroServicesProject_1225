@@ -22,6 +22,7 @@
             <TextBlock Text="Lastname"></TextBlock>
             <TextBox x:Name="lastnameTxtbox" Text="{Binding Contact.LastName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Button Name="addContact" Click="addContact_Click">Add New Contact</Button>
+            <Button Name="updateContact" Click="updateContact_Click">Update Contact</Button>
         </StackPanel>
     </StackPanel>
 </Window>

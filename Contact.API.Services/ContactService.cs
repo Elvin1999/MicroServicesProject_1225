@@ -57,5 +57,12 @@ namespace Contact.API.Services
         {
             return AllContacts.FirstOrDefault(x => x.Id == id);
         }
+
+        public void Update(int id,ContactModel model)
+        {
+            var contact = GetContactById(id); 
+            contact.Firstname = model.Firstname;
+            contact.Lastname = model.Lastname;
+        }
     }
 }

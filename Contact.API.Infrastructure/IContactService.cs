@@ -12,6 +12,7 @@ namespace Contact.API.Infrastructure
         ContactModel GetContactById(int id);    
         List<ContactModel> GetAll();
         void Add(ContactModel model);   
+        void Update(int id,ContactModel model);   
         void Delete(int id);
     }
 }

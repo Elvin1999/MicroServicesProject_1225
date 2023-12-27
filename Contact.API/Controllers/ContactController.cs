@@ -28,6 +28,22 @@ namespace Contact.API.Controllers
             return dto;
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Update(ContactDto dto, int id)
+        {
+            try
+            {
+                var obj = _mapper.Map<ContactModel>(dto);
+                _contactService.Update(id, obj);
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
